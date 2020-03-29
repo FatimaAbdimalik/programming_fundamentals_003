@@ -6,7 +6,7 @@ const catalogue = [
   { title: "Wolf Hall", author: "Hilary Mantel", quantity: 33 },
   { title: "Bring Up The Bodies", author: "Hilary Mantel", quantity: 31 },
   {
-    title: "A Place of Greater Safety ",
+    title: "A Place of Greater Safety",
     author: "Hilary Mantel",
     quantity: 11
   },
@@ -71,18 +71,30 @@ function countBooksByFirstLetter(letter) {
 
 function getQuantity(title) {
   for (let i = 0; i < catalogue.length; i++) {
+    //newFunction(catalogue[i].quantity);
     if (catalogue[i].title === title) {
+      console.log("hi");
       return catalogue[i].quantity;
     }
   }
 }
 
 function getBooksByAuthor(author) {
-  // Your code here
+  let book = [];
+  for (let i = 0; i < catalogue.length; i++) {
+    if (catalogue[i].author === author) {
+      book.push(catalogue[i]);
+    }
+  }
+  return book;
 }
 
 function checkQuantity(title, quantity) {
-  // Your code here
+  for (let i = 0; i < catalogue.length; i++) {
+    if (catalogue[i].title === title && catalogue[i].quantity >= quantity) {
+      return true;
+    }
+  }
 }
 
 module.exports = {
